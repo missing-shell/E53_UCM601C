@@ -7,8 +7,9 @@
 #include "driver/gpio.h"
 #include "sdkconfig.h"
 #include "esp_log.h"
+#include "UCM601C.h"
 
-static const char TAG[] = "MAIN";
+static const char *TAG = "MAIN";
 
 void app_main()
 {
