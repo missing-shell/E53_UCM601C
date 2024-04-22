@@ -73,6 +73,47 @@ extern "C"
         CMD_READER_OVERTEMPERATURE_ALARM = 0xE1         // 读写器温度过高告警
     } RFID_COMMAND;
 
+    // RFID Return Code
+    typedef enum ReturnCode
+    {
+        COMMAND_SUCCESS = 0x10,                                 // 命令成功完成
+        COMMAND_FAIL = 0x11,                                    // 命令执行失败
+        MCU_RESET_ERROR = 0x20,                                 // CPU复位错误
+        CW_ON_ERROR = 0x21,                                     // 打开CW错误
+        ANTENNA_MISSING_ERROR = 0x22,                           // 天线未连接
+        WRITE_FLASH_ERROR = 0x23,                               // 写Flash错误
+        READ_FLASH_ERROR = 0x24,                                // 读Flash错误
+        SET_OUTPUT_POWER_ERROR = 0x25,                          // 设置发射功率错误
+        TAG_INVENTORY_ERROR = 0x31,                             // 盘存标签错误
+        TAG_READ_ERROR = 0x32,                                  // 读标签错误
+        TAG_WRITE_ERROR = 0x33,                                 // 写标签错误
+        TAG_LOCK_ERROR = 0x34,                                  // 锁定标签错误
+        TAG_KILL_ERROR = 0x35,                                  // 灭活标签错误
+        NO_TAG_ERROR = 0x36,                                    // 无可操作标签错误
+        INVENTORY_OK_BUT_ACCESS_FAIL = 0x37,                    // 成功盘存但访问失败
+        ACCESS_OR_PASSWORD_ERROR = 0x40,                        // 访问标签错误或访问密码错误
+        PARAMETER_INVALID = 0x41,                               // 无效的参数
+        PARAMETER_INVALID_WORDCNT_TOO_LONG = 0x42,              // wordCnt参数超过规定长度
+        PARAMETER_INVALID_MEMBANK_OUT_OF_RANGE = 0x43,          // MemBank参数超出范围
+        PARAMETER_INVALID_LOCK_REGION_OUT_OF_RANGE = 0x44,      // Lock数据区参数超出范围
+        PARAMETER_INVALID_LOCK_ACTION_OUT_OF_RANGE = 0x45,      // LockType参数超出范围
+        PARAMETER_READER_ADDRESS_INVALID = 0x46,                // 读写器地址无效
+        PARAMETER_INVALID_ANTENNA_ID_OUT_OF_RANGE = 0x47,       // Antenna_id 超出范围
+        PARAMETER_INVALID_OUTPUT_POWER_OUT_OF_RANGE = 0x48,     // 输出功率参数超出范围
+        PARAMETER_INVALID_FREQUENCY_REGION_OUT_OF_RANGE = 0x49, // 射频规范区域参数超出范围
+        PARAMETER_INVALID_BAUDRATE_OUT_OF_RANGE = 0x4A,         // 波特率参数超出范围
+        PARAMETER_EPC_MATCH_LEN_TOO_LONG = 0x4C,                // EPC匹配长度越界
+        PARAMETER_EPC_MATCH_LEN_ERROR = 0x4D,                   // EPC匹配长度错误
+        PARAMETER_INVALID_EPC_MATCH_MODE = 0x4E,                // EPC匹配参数超出范围
+        PARAMETER_INVALID_FREQUENCY_RANGE = 0x4F,               // 频率范围设置参数错误
+        FAIL_TO_GET_RN16_FROM_TAG = 0x50,                       // 无法接收标签的RN16
+        RF_CHIP_FAIL_TO_RESPONSE = 0x53,                        // 射频芯片无响应
+        FAIL_TO_ACHIEVE_DESIRED_OUTPUT_POWER = 0x54,            // 输出达不到指定的输出功率
+        COPYRIGHT_AUTHENTICATION_FAIL = 0x55,                   // 版权认证未通过
+        SPECTRUM_REGULATION_ERROR = 0x56,                       // 频谱规范设置错误
+        OUTPUT_POWER_TOO_LOW = 0x57                             // 输出功率过低
+    } ReturnCode;
+
 #ifdef __cplusplus
 }
 
