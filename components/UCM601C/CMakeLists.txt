@@ -1,5 +1,5 @@
 idf_component_register(
     INCLUDE_DIRS include
-    SRCS src/UCM601C.c
+    SRCS  src
     REQUIRES esp_event driver
 )
